@@ -52,5 +52,3 @@ while True:
 
 np.save(f"{name}.npy", np.array(X))
 print(np.array(X).shape)
-
-#end of file

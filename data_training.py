@@ -65,6 +65,3 @@ model.fit(X_new, y_new, epochs=80)
 
 model.save("model.h5")
 np.save("labels.npy", np.array(label))
-
-
-dsaf
