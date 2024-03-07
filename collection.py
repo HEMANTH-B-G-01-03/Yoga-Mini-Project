@@ -6,6 +6,7 @@ def inFrame(lst):
 	if lst[28].visibility > 0.6 and lst[27].visibility > 0.6 and lst[15].visibility>0.6 and lst[16].visibility>0.6:
 		return True 
 	return False
+
  
 cap = cv2.VideoCapture(0)
 

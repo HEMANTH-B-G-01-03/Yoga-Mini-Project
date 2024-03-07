@@ -55,8 +55,8 @@ while True:
 
     else: 
       
-        cv2.putText(window, "Make sure full body is visible ", (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 1.8, (0, 165, 255), 3, cv2.LINE_AA)
-
+        cv2.putText(window, "Wrong Yoga postion", (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 1.8, (0, 165, 255), 3, cv2.LINE_AA)
+        
     drawing.draw_landmarks(frm, res.pose_landmarks, holistic.POSE_CONNECTIONS,
                             connection_drawing_spec=drawing.DrawingSpec(color=(255, 255, 255), thickness=6),
                             landmark_drawing_spec=drawing.DrawingSpec(color=(0, 0, 255), circle_radius=3, thickness=3))
