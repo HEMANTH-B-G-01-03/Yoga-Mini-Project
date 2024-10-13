@@ -2,8 +2,9 @@ import cv2
 import numpy as np 
 import mediapipe as mp 
 from keras.models import load_model 
-import pygame
+import pygame       
 pygame.init()
+
 def inFrame(lst):
     if lst[28].visibility > 0.6 and lst[27].visibility > 0.6 and lst[15].visibility > 0.6 and lst[16].visibility > 0.6:
         return True 
@@ -17,8 +18,10 @@ holis = holistic.Pose()
 drawing = mp.solutions.drawing_utils
 
 cap = cv2.VideoCapture(0)
+
 desired_width = 1280
 desired_height = 920
+
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, desired_width)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, desired_height)
 
@@ -46,11 +49,17 @@ while True:
 
         if p[0][np.argmax(p)] > 0.75:
             cv2.putText(window, pred, (180, 180), cv2.FONT_ITALIC, 1.3, (0, 255, 0), 4)
+
             my_sound = pygame.mixer.Sound('sucess.mp3')
             my_sound.play()
+            
         else:
-             cv2.putText(window, " Wrong  Yoga Postion ", (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 1.8, (0, 165, 255), 3, cv2.LINE_AA)
-             my_sound = pygame.mixer.Sound('warning.mp3')
+             cv2.putText(window, " Wrong  Yoga Postion ",
+                         
+                          (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 1.8, (0, 165, 255), 3, cv2.LINE_AA)
+             
+             
+             my_sound = pygame.mixer.Sound('Warning.mp3')
              my_sound.play()
 
     else: 
@@ -69,6 +78,7 @@ while True:
     start_y = (window.shape[0] - resized_frame.shape[0]) // 2
     end_x = start_x + resized_frame.shape[1]
     end_y = start_y + resized_frame.shape[0]
+    
 
     # Position the resized frame at the calculated location in the window
     window[start_y:end_y, start_x:end_x, :] = resized_frame
